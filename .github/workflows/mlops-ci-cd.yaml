@@ -1,0 +1,22 @@
+name: Run Metaflow with UV
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  check-bats-version:
+    runs-on: self-hosted
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+
+      - name: Set up environment with uv
+        run: uv sync
+
+      - name: Run Training Flow
+        run: uv run training/train_flow.py --environment=pypi run
