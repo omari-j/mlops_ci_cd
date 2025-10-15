@@ -6,16 +6,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  check-bats-version:
+  run-metaflow-pipeline:
     runs-on: self-hosted
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
 
       - name: Set up environment with uv
         run: uv sync
