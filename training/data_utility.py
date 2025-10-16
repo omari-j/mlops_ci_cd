@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 import seaborn as sns
 import logging
 import logging.config
+import pandas as pd
 
 def download_penguins():
     """Download the penguins dataset and store it in a directory called
@@ -44,12 +45,8 @@ def load_data(directory, filename):
         print(f"File '{filename}' not found in directory '{directory}'.")
         return None
 
-def split_data():
+def split_data(penguins):
     """Create features and labels of train and test datasets"""
-
-    # Create a data from dataset
-    logging.info(msg="Creating DataFrame from csv..")
-    penguins = pd.read_csv('data/penguins.csv')
 
     # Create training and test splits
     penguins = penguins.dropna(subset=['species'])

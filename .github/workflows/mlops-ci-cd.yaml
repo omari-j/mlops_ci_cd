@@ -13,9 +13,7 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Set up environment with uv
-        run: |
-          uv sync
+        run: uv sync
 
       - name: Run Training Flow
-        run: |
-          uv run training/train_flow.py --environment=pypi run
+        run: uv run training/train_flow.py --environment=pypi run
